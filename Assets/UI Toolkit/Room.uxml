@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lobby.uss?fileID=7433441132597879392&amp;guid=f36e29a9ed65cbb429745b88cc8e126a&amp;type=3#Lobby" />
+    <ui:VisualElement name="Window" class="window">
+        <ui:VisualElement name="PlayersInfo">
+            <ui:Label text="Players" display-tooltip-when-elided="true" />
+            <ui:ListView focusable="true" name="PlayerList" fixed-item-height="60" class="listview" style="border-left-color: rgb(137, 137, 137); border-right-color: rgb(137, 137, 137); border-top-color: rgb(137, 137, 137); border-bottom-color: rgb(137, 137, 137); border-left-width: 8px; border-right-width: 8px; border-top-width: 8px; border-bottom-width: 8px; border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Buttons" style="flex-direction: row; justify-content: space-between;">
+            <ui:Button text="Leave" display-tooltip-when-elided="true" name="BtnLeave" />
+            <ui:Button text="Start Game" display-tooltip-when-elided="true" name="BtnStart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RoomInfo" style="font-size: 24px;">
+            <ui:Label text="room" display-tooltip-when-elided="true" name="RoomName" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

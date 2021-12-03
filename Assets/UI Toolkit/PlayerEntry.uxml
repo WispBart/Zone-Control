@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lobby.uss?fileID=7433441132597879392&amp;guid=f36e29a9ed65cbb429745b88cc8e126a&amp;type=3#Lobby" />
+    <ui:GroupBox name="PlayerEntry" class="list-item">
+        <ui:Label text="Name" display-tooltip-when-elided="true" name="PlayerName" />
+        <ui:Label text="ReadyStatus" display-tooltip-when-elided="true" name="Ready" />
+    </ui:GroupBox>
+</ui:UXML>

@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lobby.uss?fileID=7433441132597879392&amp;guid=f36e29a9ed65cbb429745b88cc8e126a&amp;type=3#Lobby" />
+    <ui:GroupBox name="RoomEntry" class="list-item">
+        <ui:Label text="Room" display-tooltip-when-elided="true" name="RoomName" />
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:Label text="0" display-tooltip-when-elided="true" name="UserCount" />
+            <ui:Label text="/" display-tooltip-when-elided="true" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="MaxUserCount" />
+        </ui:VisualElement>
+    </ui:GroupBox>
+</ui:UXML>

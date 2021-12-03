@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lobby.uss?fileID=7433441132597879392&amp;guid=f36e29a9ed65cbb429745b88cc8e126a&amp;type=3#Lobby" />
+    <ui:VisualElement name="Window" class="window">
+        <ui:Button text="Refresh" display-tooltip-when-elided="true" name="BtnRefresh" />
+        <ui:GroupBox name="ConnectedControls">
+            <ui:VisualElement name="CreateButtons" style="flex-direction: row;">
+                <ui:TextField picking-mode="Ignore" label="Room Name" name="RoomName" class="LobbyTextField" />
+                <ui:Button text="Create" display-tooltip-when-elided="true" name="BtnCreateRoom" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Lobbies" style="background-color: rgb(147, 147, 147); border-left-color: rgb(195, 195, 195); border-right-color: rgb(195, 195, 195); border-top-color: rgb(195, 195, 195); border-bottom-color: rgb(195, 195, 195); border-left-width: 6px; border-right-width: 6px; border-top-width: 6px; border-bottom-width: 6px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+                <ui:Label text="Available Lobbies" display-tooltip-when-elided="true" />
+                <ui:ListView focusable="true" name="LobbyList" fixed-item-height="50" class="listview" />
+            </ui:VisualElement>
+        </ui:GroupBox>
+        <ui:TextField picking-mode="Ignore" label="Player Name" name="PlayerName" class="LobbyTextField" style="flex-grow: 0;" />
+    </ui:VisualElement>
+</ui:UXML>
