@@ -1,7 +1,8 @@
+using Units;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace HelloWorld
+namespace Game
 {
     public class Player : NetworkBehaviour
     {

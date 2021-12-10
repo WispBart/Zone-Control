@@ -1,9 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-direction: row;">
         <ui:GroupBox name="ConnectButtons">
-            <ui:Button text="Client" display-tooltip-when-elided="true" name="BtnClient" />
-            <ui:Button text="Server" display-tooltip-when-elided="true" name="BtnServer" />
-            <ui:Button text="Host" display-tooltip-when-elided="true" name="BtnHost" />
             <ui:Button text="Disconnect" display-tooltip-when-elided="true" name="BtnDisconnect" />
         </ui:GroupBox>
         <ui:VisualElement name="StatusWindow" style="width: 111px; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;">
@@ -11,7 +8,6 @@
                 <ui:Label text="Status:" display-tooltip-when-elided="true" />
                 <ui:Label text="??" display-tooltip-when-elided="true" name="LblRole" enable-rich-text="true" />
             </ui:VisualElement>
-            <ui:Button text="Move Step" display-tooltip-when-elided="true" name="BtnMove" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

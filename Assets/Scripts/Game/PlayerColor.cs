@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace HelloWorld
+namespace Units
 {
     public class PlayerColor : NetworkBehaviour
     {
@@ -16,9 +16,10 @@ namespace HelloWorld
             _renderer = GetComponentInChildren<Renderer>();
         }
 
-        void OnDestroy()
+        public override void OnDestroy()
         {
             Color.OnValueChanged -= SetPlayerColorInternal;
+            base.OnDestroy();
         }
         
         private void SetPlayerColorInternal(Color oldColor, Color newColor)

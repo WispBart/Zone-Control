@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-namespace HelloWorld
+namespace Game
 {
-    public class TestScene : NetworkBehaviour
+    public class GameScene : NetworkBehaviour
     {
         [Serializable] public class PlayerData
         {
@@ -25,9 +25,9 @@ namespace HelloWorld
         void Awake()
         {
             var root = GUI.rootVisualElement;
-            root.Q<Button>("BtnClient").clicked += BtnClient;
-            root.Q<Button>("BtnServer").clicked += BtnServer;
-            root.Q<Button>("BtnHost").clicked += BtnHost;
+            // root.Q<Button>("BtnClient").clicked += BtnClient;
+            // root.Q<Button>("BtnServer").clicked += BtnServer;
+            // root.Q<Button>("BtnHost").clicked += BtnHost;
             root.Q<Button>("BtnDisconnect").clicked += BtnDisconnect;
             _roleLabel = root.Q<Label>("LblRole");
             NetMgr.SceneManager.OnLoadEventCompleted += SceneManagerOnOnLoadEventCompleted;
@@ -38,6 +38,7 @@ namespace HelloWorld
         {
             Debug.Log("Disconnecting");
             NetMgr.DisconnectClient(NetMgr.LocalClientId);
+            Destroy(NetMgr.gameObject);
             SceneManager.LoadScene(0);
         }
 
@@ -49,8 +50,10 @@ namespace HelloWorld
             foreach (var clientID in clientscompleted)
             {
                 var config = PlayerConfigs[playerNr];
-                var po = Instantiate(PlayerObjectTemplate, config.StartPosition.position, config.StartPosition.rotation);
+                var spawnPos = config.StartPosition.position;
+                var po = Instantiate(PlayerObjectTemplate, spawnPos, config.StartPosition.rotation);
                 var player = po.GetComponent<Player>();
+                player.Position.Value = spawnPos;
                 player.SetPlayerColor(config.Color);
                 po.SpawnAsPlayerObject(clientID);
                 playerNr++;
