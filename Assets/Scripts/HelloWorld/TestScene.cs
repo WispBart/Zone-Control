@@ -28,9 +28,17 @@ namespace HelloWorld
             root.Q<Button>("BtnClient").clicked += BtnClient;
             root.Q<Button>("BtnServer").clicked += BtnServer;
             root.Q<Button>("BtnHost").clicked += BtnHost;
-            root.Q<Button>("BtnMove").clicked += BtnMove;
+            root.Q<Button>("BtnDisconnect").clicked += BtnDisconnect;
             _roleLabel = root.Q<Label>("LblRole");
             NetMgr.SceneManager.OnLoadEventCompleted += SceneManagerOnOnLoadEventCompleted;
+        }
+        
+
+        private void BtnDisconnect()
+        {
+            Debug.Log("Disconnecting");
+            NetMgr.DisconnectClient(NetMgr.LocalClientId);
+            SceneManager.LoadScene(0);
         }
 
         private void SceneManagerOnOnLoadEventCompleted(string scenename, LoadSceneMode loadscenemode, List<ulong> clientscompleted, List<ulong> clientstimedout)
@@ -42,17 +50,11 @@ namespace HelloWorld
             {
                 var config = PlayerConfigs[playerNr];
                 var po = Instantiate(PlayerObjectTemplate, config.StartPosition.position, config.StartPosition.rotation);
-                po.GetComponent<Player>().SetPlayerColor(config.Color);
+                var player = po.GetComponent<Player>();
+                player.SetPlayerColor(config.Color);
                 po.SpawnAsPlayerObject(clientID);
-
                 playerNr++;
             }
-        }
-
-
-        private void BtnMove()
-        {
-            NetMgr.SpawnManager.GetLocalPlayerObject().GetComponent<Player>().MoveStep();
         }
 
         private void BtnHost() => NetMgr.StartHost();

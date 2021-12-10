@@ -62,6 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7765d2f4f225749a03115fdf6d1295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FactoryPrefab: {fileID: -8712576817622322601, guid: e092def4d72064b45b9ecfe3403d73b7, type: 3}
+  Color:
+    m_InternalValue: {r: 0, g: 0, b: 0, a: 0}
+  Position:
+    m_InternalValue: {x: 0, y: 0, z: 0}
 --- !u!1 &981757790238748175
 GameObject:
   m_ObjectHideFlags: 0

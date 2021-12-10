@@ -6,53 +6,41 @@ namespace HelloWorld
     public class Player : NetworkBehaviour
     {
         public NetworkManager NetMgr => NetworkManager.Singleton;
+
+        public Factory FactoryPrefab;
+
+        public NetworkVariable<Color> Color = new NetworkVariable<Color>();
         public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>();
-        public NetworkVariable<Color> PlayerColor = new NetworkVariable<Color>();
-        private Renderer _renderer;
 
-        public void SetPlayerColor(Color color) => PlayerColor.Value = color;
+        public void SetPlayerColor(Color color) => Color.Value = color;
         
-        void SetPlayerColorInternal(Color oldColor, Color newColor)
-        {
-            _renderer.material.color = newColor;
-        }
-
-        void Awake()
-        {
-            _renderer = GetComponentInChildren<Renderer>();
-            Position.OnValueChanged += UpdatePosition;
-            PlayerColor.OnValueChanged += SetPlayerColorInternal;
-        }
-
-        void OnDestroy()
-        {
-            Position.OnValueChanged -= UpdatePosition;
-        }
-
-        private void UpdatePosition(Vector3 previousvalue, Vector3 newvalue) => transform.position = newvalue;
-
         public override void OnNetworkSpawn()
         {
-            if (IsOwner) MoveStep();
+            if (IsOwner) SpawnFactory();
         }
 
-        public void MoveStep()
+        public void SpawnFactory()
         {
-            if (NetMgr.IsServer)
-            {
-                Position.Value = transform.position + transform.forward;
-            }
-            else
-            {
-                SubmitMoveStepServerRPC();
-            }
+            SubmitSpawnFactoryServerRPC();
+
+            // if (NetMgr.IsServer)
+            // {
+            //     Debug.Log("Are we ever the server?");
+            // }
+            // else
+            // {
+            // }
         }
 
 
         [ServerRpc]
-        private void SubmitMoveStepServerRPC(ServerRpcParams rpcParams = default)
+        private void SubmitSpawnFactoryServerRPC(ServerRpcParams rpcParams = default)
         {
-            Position.Value = transform.position + transform.forward;
+            var client = rpcParams.Receive.SenderClientId;
+            var po = Instantiate(FactoryPrefab, Position.Value, Quaternion.identity).GetComponent<NetworkObject>();
+            var colorComponent = po.GetComponent<PlayerColor>();
+            colorComponent.SetPlayerColor(Color.Value);
+            po.SpawnWithOwnership(client);
         }
     }
 }

@@ -4,6 +4,7 @@
             <ui:Button text="Client" display-tooltip-when-elided="true" name="BtnClient" />
             <ui:Button text="Server" display-tooltip-when-elided="true" name="BtnServer" />
             <ui:Button text="Host" display-tooltip-when-elided="true" name="BtnHost" />
+            <ui:Button text="Disconnect" display-tooltip-when-elided="true" name="BtnDisconnect" />
         </ui:GroupBox>
         <ui:VisualElement name="StatusWindow" style="width: 111px; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;">
             <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
