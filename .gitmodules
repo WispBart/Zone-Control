@@ -1,0 +1,4 @@
+[submodule "Packages/com.wispbart.butlerwindow"]
+	path = Packages/com.wispbart.butlerwindow
+	url = https://github.com/WispBart/ButlerWindow.git
+	branch = develop

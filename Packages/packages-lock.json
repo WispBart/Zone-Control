@@ -281,6 +281,14 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.wispbart.butlerwindow": {
+      "version": "file:com.wispbart.butlerwindow",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.editorcoroutines": "0.1.0-preview.1"
+      }
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
