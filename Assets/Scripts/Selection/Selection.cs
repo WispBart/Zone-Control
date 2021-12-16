@@ -29,7 +29,7 @@ public class Selection : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (!Input.GetKey(KeyCode.LeftShift)) Selected.Clear();
+            if (!Input.GetKey(KeyCode.LeftShift)) ClearSelection();
             var clickPoint = _camera.ScreenToViewportPoint(Input.mousePosition);
             var ray = _camera.ViewportPointToRay(clickPoint);
             Debug.DrawRay(ray.origin, ray.direction, Color.cyan);
