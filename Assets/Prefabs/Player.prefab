@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 981757789771508032}
   - component: {fileID: 981757789771508039}
   - component: {fileID: -6904542701764531185}
+  - component: {fileID: 197601299824313071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -61,8 +62,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7765d2f4f225749a03115fdf6d1295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrefab: {fileID: -8712576817622322601, guid: e092def4d72064b45b9ecfe3403d73b7, type: 3}
   Color:
     m_InternalValue: {r: 0, g: 0, b: 0, a: 0}
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}
+  serverPlayerCommands: {fileID: 197601299824313071}
+--- !u!114 &197601299824313071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981757789771508038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d36aff5f2d5e40ceb5921070d3c4dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FactoryPrefab: {fileID: -8712576817622322601, guid: e092def4d72064b45b9ecfe3403d73b7, type: 3}
+  CombatUnitPrefab: {fileID: 7799904022408444029, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}

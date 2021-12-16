@@ -20,8 +20,12 @@ namespace Game
         public NetworkManager NetMgr => NetworkManager.Singleton;
         [FormerlySerializedAs("PlayerObject")] public NetworkObject PlayerObjectTemplate;
         public PlayerData[] PlayerConfigs;
+
+        private Dictionary<int, Player> _guidToPlayerObject = new Dictionary<int, Player>();
         private Label _roleLabel;
         //private Player _localPlayer;
+        private bool _hasNetmgr;
+        
         void Awake()
         {
             var root = GUI.rootVisualElement;
@@ -30,7 +34,11 @@ namespace Game
             // root.Q<Button>("BtnHost").clicked += BtnHost;
             root.Q<Button>("BtnDisconnect").clicked += BtnDisconnect;
             _roleLabel = root.Q<Label>("LblRole");
-            NetMgr.SceneManager.OnLoadEventCompleted += SceneManagerOnOnLoadEventCompleted;
+            _hasNetmgr = NetMgr != null;
+            if (_hasNetmgr)
+            {
+                NetMgr.SceneManager.OnLoadEventCompleted += SceneManagerOnOnLoadEventCompleted;
+            }
         }
         
 
@@ -42,6 +50,18 @@ namespace Game
             SceneManager.LoadScene(0);
         }
 
+        private void Start()
+        {
+            // Debug startup without netmgr.
+            if (!_hasNetmgr)
+            {
+                var config = PlayerConfigs[0];
+                var player = Instantiate(PlayerObjectTemplate, config.StartPosition.position, Quaternion.identity).GetComponent<Player>();
+                player.Position.Value = config.StartPosition.position;
+                player.SetPlayerColor(config.Color);
+            }
+        }
+        
         private void SceneManagerOnOnLoadEventCompleted(string scenename, LoadSceneMode loadscenemode, List<ulong> clientscompleted, List<ulong> clientstimedout)
         {
             if (!IsHost) return;
@@ -67,6 +87,7 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
+            if (!_hasNetmgr) return;
             var role = NetMgr.IsHost ? "Host" : NetMgr.IsServer ? "Server" : "Client";
             _roleLabel.text = role;
         }
