@@ -17,6 +17,8 @@ public class SelectionBox : MonoBehaviour
         _camera = Camera.main;
         BoxDrawer.enabled = false;
     }
+
+    public void SetUnitLayer(LayerMask unitLayer) => UnitLayer = unitLayer;
     
     public void StartSelect(Vector3 position)
     {
@@ -45,7 +47,7 @@ public class SelectionBox : MonoBehaviour
         Debug.DrawLine(center, center - new Vector3(halfExtents.x, 0, 0), Color.red, 2f);
         Debug.DrawLine(center, center + new Vector3(0, 0, halfExtents.z), Color.magenta, 2f);
         Debug.DrawLine(center, center - new Vector3(0,0, halfExtents.z), Color.yellow, 2f);
-        var colliders = Physics.OverlapBox(center, new Vector3(halfExtents.x, 3f, halfExtents.z));
+        var colliders = Physics.OverlapBox(center, new Vector3(halfExtents.x, 3f, halfExtents.z), Quaternion.identity, UnitLayer);
         foreach (var overlappingCollider in colliders)
         {
             var selectable = overlappingCollider.GetComponent<Selectable>();

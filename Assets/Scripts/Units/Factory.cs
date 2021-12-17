@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using Units;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Factory : NetworkBehaviour
     public Transform SpawnPoints;
     public Unit UnitPrefab;
     private PlayerColor _playerColor;
+    private ServerPlayerCommands _commands;
+
+    private Player _player;
     
     void Awake()
     {
@@ -18,9 +22,18 @@ public class Factory : NetworkBehaviour
     
     public override void OnNetworkSpawn()
     {
-        if (IsOwner) SubmitStartSpawningServerRPC();
+        if (IsOwner)
+        {
+            // _player = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject()
+            //     .GetComponent<Player>();
+            SubmitStartSpawningServerRPC();
+        }
     }
-    
+
+    public void SetupFactory(Player player)
+    {
+        _player = player;
+    }
     
     [ServerRpc]
     private void SubmitStartSpawningServerRPC(ServerRpcParams rpcParams = default)
@@ -38,9 +51,11 @@ public class Factory : NetworkBehaviour
             Quaternion rotation = spawnPoint.rotation;
             // spawn unit
             var po = Instantiate(UnitPrefab, position, rotation).GetComponent<NetworkObject>();
+            var unit = po.GetComponent<Unit>();
             var colorComponent = po.GetComponent<PlayerColor>();
             colorComponent.SetPlayerColor(_playerColor.Color.Value);
             po.SpawnWithOwnership(clientId);
+            unit.SetupOwnershipClientRPC(_player.GetPlayerLayerInt(), _player.GetEnemyLayerMask());
             yield return new WaitForSeconds(3f);
         }
     }

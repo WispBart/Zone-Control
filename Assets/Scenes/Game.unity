@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3732977257
@@ -238,6 +242,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -300,6 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1556500449
@@ -360,6 +372,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -422,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1427855886
@@ -474,7 +494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376189141
 GameObject:
@@ -568,7 +588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &392851189
 GameObject:
@@ -656,6 +676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2021626170
@@ -675,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1939295266368471107, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1939295266368471107, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,6 +748,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -831,7 +859,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &733680328
 PrefabInstance:
@@ -887,6 +915,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -948,6 +980,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1104,6 +1140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 248630112
@@ -1196,6 +1236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2405452373
@@ -1256,6 +1300,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1345,7 +1393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 65.59, y: 0, z: 0}
 --- !u!1 &1451042599
 GameObject:
@@ -1393,7 +1441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505053597
 GameObject:
@@ -1481,6 +1529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2985672426
@@ -1567,7 +1619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1939295266368471107, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1939295266368471107, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1616,6 +1668,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1682,6 +1738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2379083935
@@ -1743,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 952587493
@@ -1761,7 +1825,7 @@ GameObject:
   - component: {fileID: 2012549450}
   - component: {fileID: 2012549449}
   m_Layer: 0
-  m_Name: TestScene
+  m_Name: -= Game Scene =-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1804,6 +1868,7 @@ MonoBehaviour:
     StartPosition: {fileID: 2114881574}
   - Color: {r: 0.15632057, g: 1, b: 0, a: 1}
     StartPosition: {fileID: 392851190}
+  Selection: {fileID: 301118020}
 --- !u!4 &2012549451
 Transform:
   m_ObjectHideFlags: 0
@@ -1820,7 +1885,7 @@ Transform:
   - {fileID: 2114881574}
   - {fileID: 392851190}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012589756
 GameObject:
@@ -1978,6 +2043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatUnit (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1677427578
@@ -2069,6 +2138,10 @@ PrefabInstance:
     - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: m_Name
       value: CombatUnit (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939295266368471111, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4574432779354619431, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
       propertyPath: GlobalObjectIdHash

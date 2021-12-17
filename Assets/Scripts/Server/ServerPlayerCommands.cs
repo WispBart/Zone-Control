@@ -30,16 +30,23 @@ public class ServerPlayerCommands : NetworkBehaviour
     {
         var client = rpcParams.Receive.SenderClientId;
         var po = Instantiate(FactoryPrefab, Player.Position.Value, Quaternion.identity).GetComponent<NetworkObject>();
+        var factory = po.GetComponent<Factory>();
+        factory.SetupFactory(Player);
         var colorComponent = po.GetComponent<PlayerColor>();
         colorComponent.SetPlayerColor(Player.Color.Value);
         po.SpawnWithOwnership(client);
     }
-    
+
     [ServerRpc]
     public void DispatchAttackMoveServerRPC(AttackMoveCommand command, ServerRpcParams rpcParams = default)
     {
-            
+        var units = command.Units;
+        foreach (var unitRef in units)
+        {
+            if (unitRef.TryGet(out Unit unit))
+            {
+                unit.AttackMove(command.TargetPosition);
+            }
+        }
     }
-    
-    
 }

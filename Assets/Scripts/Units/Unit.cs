@@ -20,16 +20,23 @@ public class Unit : NetworkBehaviour
     void OnEnable()
     {
         // Set layer if we're playing locally
-        if (NetworkManager.Singleton == null) SetupOwnership(OwnedLayer, EnemiesLayerMask);
+        if (NetworkManager.Singleton == null) SetupOwnershipInternal(OwnedLayer, EnemiesLayerMask);
     }
 
     // Call on server and set client RPCs
-    public void SetupOwnership(int playerLayer, LayerMask enemyMask)
+    [ClientRpc]
+    public void SetupOwnershipClientRPC(int playerLayer, int enemyMask)
+    {
+        SetupOwnershipInternal(playerLayer, enemyMask);
+    }
+
+    private void SetupOwnershipInternal(int playerLayer, int enemyMask)
     {
         OwnedLayer = playerLayer;
         EnemiesLayerMask = enemyMask;
         PhysicsGameObject.layer = OwnedLayer;
     }
+    
 
     public void Move(Vector3 position)
     {

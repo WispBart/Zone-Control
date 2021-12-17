@@ -20,7 +20,9 @@ namespace Game
         public NetworkManager NetMgr => NetworkManager.Singleton;
         [FormerlySerializedAs("PlayerObject")] public NetworkObject PlayerObjectTemplate;
         public PlayerData[] PlayerConfigs;
+        public Selection Selection;
 
+        private Player _localPlayer;
         private Dictionary<int, Player> _guidToPlayerObject = new Dictionary<int, Player>();
         private Label _roleLabel;
         //private Player _localPlayer;
@@ -56,28 +58,40 @@ namespace Game
             if (!_hasNetmgr)
             {
                 var config = PlayerConfigs[0];
-                var player = Instantiate(PlayerObjectTemplate, config.StartPosition.position, Quaternion.identity).GetComponent<Player>();
-                player.Position.Value = config.StartPosition.position;
-                player.SetPlayerColor(config.Color);
+                _localPlayer = Instantiate(PlayerObjectTemplate, config.StartPosition.position, Quaternion.identity).GetComponent<Player>();
+                _localPlayer.SetupPlayer(1, config.Color, config.StartPosition.position);
             }
         }
         
         private void SceneManagerOnOnLoadEventCompleted(string scenename, LoadSceneMode loadscenemode, List<ulong> clientscompleted, List<ulong> clientstimedout)
         {
-            if (!IsHost) return;
+            if (IsServer)
+            {
+                ServerInitialization(clientscompleted);
+                LocalInitializationClientRPC();
+            }
+        }
 
-            int playerNr = 0;
+        private void ServerInitialization(List<ulong> clientscompleted)
+        {
+            int playerNr = 1;
             foreach (var clientID in clientscompleted)
             {
-                var config = PlayerConfigs[playerNr];
+                var config = PlayerConfigs[playerNr - 1];
                 var spawnPos = config.StartPosition.position;
                 var po = Instantiate(PlayerObjectTemplate, spawnPos, config.StartPosition.rotation);
                 var player = po.GetComponent<Player>();
-                player.Position.Value = spawnPos;
-                player.SetPlayerColor(config.Color);
+                player.SetupPlayer(playerNr, config.Color, config.StartPosition.position);
                 po.SpawnAsPlayerObject(clientID);
                 playerNr++;
             }
+        }
+        
+        [ClientRpc]
+        private void LocalInitializationClientRPC(ClientRpcParams rpcParams = default)
+        {
+            _localPlayer = NetMgr.SpawnManager.GetLocalPlayerObject().GetComponent<Player>();
+            Selection.SelectionBox.SetUnitLayer(LayerMask.GetMask(_localPlayer.GetPlayerLayerName()));
         }
 
         private void BtnHost() => NetMgr.StartHost();

@@ -20,7 +20,7 @@ public class Selection : MonoBehaviour
         {
             var clickPoint = _camera.ScreenToViewportPoint(Input.mousePosition);
             var ray = _camera.ViewportPointToRay(clickPoint);
-            Debug.DrawRay(ray.origin, ray.direction, Color.cyan);
+            Debug.DrawRay(ray.origin, ray.direction, Color.cyan, 0.5f);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, FloorLayer))
             {
                 AttackMove(hit.point);
@@ -32,7 +32,7 @@ public class Selection : MonoBehaviour
             if (!Input.GetKey(KeyCode.LeftShift)) ClearSelection();
             var clickPoint = _camera.ScreenToViewportPoint(Input.mousePosition);
             var ray = _camera.ViewportPointToRay(clickPoint);
-            Debug.DrawRay(ray.origin, ray.direction, Color.cyan);
+            Debug.DrawRay(ray.origin, ray.direction, Color.cyan, 0.5f);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, FloorLayer))
             {
                 SelectionBox.StartSelect(hit.point);
