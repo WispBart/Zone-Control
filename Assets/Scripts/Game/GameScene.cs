@@ -21,6 +21,7 @@ namespace Game
         [FormerlySerializedAs("PlayerObject")] public NetworkObject PlayerObjectTemplate;
         public PlayerData[] PlayerConfigs;
         public Selection Selection;
+        public PeriodicEvent SpawnTicker;
 
         private Player _localPlayer;
         private Dictionary<int, Player> _guidToPlayerObject = new Dictionary<int, Player>();
@@ -37,12 +38,19 @@ namespace Game
             root.Q<Button>("BtnDisconnect").clicked += BtnDisconnect;
             _roleLabel = root.Q<Label>("LblRole");
             _hasNetmgr = NetMgr != null;
-            if (_hasNetmgr)
+            if (_hasNetmgr && NetMgr.SceneManager != null)
             {
                 NetMgr.SceneManager.OnLoadEventCompleted += SceneManagerOnOnLoadEventCompleted;
             }
         }
-        
+
+        public void Debug_Init()
+        {
+            if (IsServer)
+            {
+                ServerInitialization(new List<ulong>() {OwnerClientId});
+            }
+        }
 
         private void BtnDisconnect()
         {
@@ -85,6 +93,7 @@ namespace Game
                 po.SpawnAsPlayerObject(clientID);
                 playerNr++;
             }
+            SpawnTicker.StartTimer();
         }
         
         [ClientRpc]
@@ -105,6 +114,15 @@ namespace Game
             var role = NetMgr.IsHost ? "Host" : NetMgr.IsServer ? "Server" : "Client";
             _roleLabel.text = role;
         }
-        
+
+        private void OnDrawGizmos()
+        {
+            foreach (var config in PlayerConfigs)
+            {
+                if (config.StartPosition == null) continue;
+                Gizmos.color = config.Color;
+                Gizmos.DrawSphere(config.StartPosition.position, 0.3f);
+            }
+        }
     }
 }
