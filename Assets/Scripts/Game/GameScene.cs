@@ -15,8 +15,13 @@ namespace Game
             public Color Color;
             public Transform StartPosition;
         }
-        
-        public UIDocument GUI;
+
+        public NetworkVariable<int> UnitCount;
+
+        private static GameScene _singleton;
+        public static GameScene GetSingleton() => _singleton;
+
+        public UIDocument DebugUI;
         public NetworkManager NetMgr => NetworkManager.Singleton;
         [FormerlySerializedAs("PlayerObject")] public NetworkObject PlayerObjectTemplate;
         public PlayerData[] PlayerConfigs;
@@ -28,10 +33,11 @@ namespace Game
         private Label _roleLabel;
         //private Player _localPlayer;
         private bool _hasNetmgr;
-        
+
         void Awake()
         {
-            var root = GUI.rootVisualElement;
+            _singleton = this;
+            var root = DebugUI.rootVisualElement;
             // root.Q<Button>("BtnClient").clicked += BtnClient;
             // root.Q<Button>("BtnServer").clicked += BtnServer;
             // root.Q<Button>("BtnHost").clicked += BtnHost;
@@ -51,6 +57,8 @@ namespace Game
                 ServerInitialization(new List<ulong>() {OwnerClientId});
             }
         }
+
+        public void IncrementUnitCount() => UnitCount.Value += 1;
 
         private void BtnDisconnect()
         {

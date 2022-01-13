@@ -115,6 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 7799904022408444029, guid: bff7c89ebdca1fa47a918130e4bcbab7, type: 3}
   SpawnTicker: {fileID: 11400000, guid: cc148c62c6545ff49912f01c52030865, type: 2}
+  SpawnUnitSize: 0.3
+  SpawnCircleSize: 2.34
+  Mask:
+    serializedVersion: 2
+    m_Bits: 32663
 --- !u!114 &3383400870197692761
 MonoBehaviour:
   m_ObjectHideFlags: 0
