@@ -532,5 +532,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7655162552580615982, guid: eb14a59ff5aeafd46a98d7c4f733375f, type: 3}
+      propertyPath: m_MaxSendQueueSize
+      value: 307200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb14a59ff5aeafd46a98d7c4f733375f, type: 3}
